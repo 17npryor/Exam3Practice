@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Nathan Pryor.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -36,9 +36,9 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem4a()
-    run_test_practice_problem4b()
-    run_test_practice_problem4c()
-    run_test_practice_problem4d()
+    #run_test_practice_problem4b()
+    #run_test_practice_problem4c()
+    #run_test_practice_problem4d()
 
 
 def is_prime(n):
@@ -142,6 +142,11 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    new_list = []
+    for k in range(len(sequence)):
+        if sequence[k-1] == sequence[k]:
+            new_list += [k-1]
+    return new_list
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -204,6 +209,8 @@ def practice_problem4b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+
+    for k in range(sequence):
 
 
 def run_test_practice_problem4c():
