@@ -35,10 +35,10 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_practice_problem4a()
+    #run_test_practice_problem4a()
     #run_test_practice_problem4b()
     #run_test_practice_problem4c()
-    #run_test_practice_problem4d()
+    run_test_practice_problem4d()
 
 
 def is_prime(n):
@@ -134,7 +134,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -143,9 +143,9 @@ def practice_problem4a(sequence):
     ####################################################################
 
     new_list = []
-    for k in range(len(sequence)):
-        if sequence[k-1] == sequence[k]:
-            new_list += [k-1]
+    for k in range(len(sequence)-1):
+        if sequence[k] == sequence[k+1]:
+            new_list += [k]
     return new_list
 
 def run_test_practice_problem4b():
@@ -202,15 +202,18 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
-
-    for k in range(sequence):
+    largest_num = sequence[0]
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > largest_num:
+            largest_num = sequence[k]
+    return largest_num
 
 
 def run_test_practice_problem4c():
@@ -302,7 +305,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -314,6 +317,12 @@ def practice_problem4c(points):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    for k in range(len(points)):
+
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            return rg.Point(points[k].y, points[k].x)
+
+    return 'Not found'
 
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
@@ -398,7 +407,7 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -406,6 +415,11 @@ def practice_problem4d(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    sum_before_diff_primes = 0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]) and is_prime(sequence[k+1]) and (sequence[k] != sequence[k+1]):
+            sum_before_diff_primes += sequence[k]
+    return sum_before_diff_primes
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
